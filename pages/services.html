@@ -8,26 +8,44 @@
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/services" aria-current="page">Services</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <header>
     <img src="/assets/images/ecs-logo-light.png" alt="Easy Choice Solutions Logo" class="logo">
     <h1>Our Services</h1>
   </header>
+
   <main class="container">
-    <section>
-      <h2>Kaizen Workshops</h2>
-      <p>Empower your team with tools to embrace continuous improvement.</p>
-    </section>
-    <section>
-      <h2>Financial Management Tools</h2>
-      <p>Streamline your finances with our easy-to-use tools.</p>
-    </section>
-    <section>
-      <h2>Productivity Solutions</h2>
-      <p>Boost your team's productivity with tailored solutions.</p>
-    </section>
+    <div class="services-grid">
+      <section>
+        <img src="/assets/images/service-icons/workshop-icon.png" alt="">
+        <h2>Kaizen Workshops</h2>
+        <p>Empower your team with tools to embrace continuous improvement.</p>
+      </section>
+      <section>
+        <img src="/assets/images/service-icons/tools-icon.png" alt="">
+        <h2>Financial Management Tools</h2>
+        <p>Streamline your finances with our easy-to-use tools.</p>
+      </section>
+      <section>
+        <img src="/assets/images/service-icons/consulting-icon.png" alt="">
+        <h2>Productivity Solutions</h2>
+        <p>Boost your team's productivity with tailored solutions.</p>
+      </section>
+    </div>
   </main>
+
   <footer>
     <p>&copy; 2026 Easy Choice Solutions LLC. All rights reserved.</p>
+    <p><a href="/">Home</a> · <a href="/contact">Contact</a></p>
   </footer>
 </body>
 </html>

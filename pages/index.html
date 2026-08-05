@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- SUCCESS / ERROR BANNER -->
-<div id="notification-banner" style="display:none; position:fixed; top:0; left:0; width:100%;
-     text-align:center; padding:15px; color:#fff; font-weight:bold; z-index:1000;
-     box-shadow:0 2px 6px rgba(0,0,0,0.2);">
-</div>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,167 +7,27 @@
   <meta name="keywords" content="business solutions, finance app, Easy Choice Solutions">
   <meta name="author" content="Easy Choice Solutions LLC">
   <title>Easy Choice Solutions LLC</title>
-  <style>
-    /* General Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    header {
-      background: linear-gradient(135deg, #2c2c2c, #0078d7);
-      color: #fff;
-      text-align: center;
-      padding: 40px 0;
-    }
-
-    .logo {
-      max-width: 200px;
-    }
-
-    .logo-dark {
-      max-width: 250px;
-    }
-
-    header h1 {
-      margin-top: 15px;
-      font-size: 2.5em;
-      text-transform: uppercase;
-    }
-
-    header p {
-      margin: 10px 0;
-      font-size: 1.2em;
-      color: #d3d3d3;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 20px auto;
-      padding: 20px;
-    }
-
-    h2 {
-      color: #0078d7;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 20px;
-      background: #0078d7;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    .btn:hover {
-      background: #005bb5;
-    }
-
-    .cta {
-      text-align: center;
-      margin: 40px 0;
-    }
-
-    .cta p {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-    }
-
-    form {
-      margin: 20px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    form label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-
-    form input, form textarea, form button {
-      width: 100%;
-      margin-bottom: 15px;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-
-    form button {
-      background: #0078d7;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      font-size: 1em;
-    }
-
-    form button:hover {
-      background: #005bb5;
-    }
-
-    form button:disabled {
-      background: #005bb5;
-      opacity: 0.7;
-      cursor: not-allowed;
-    }
-
-    footer {
-      text-align: center;
-      background: #2c2c2c;
-      color: #fff;
-      padding: 20px 0;
-      margin-top: 40px;
-    }
-
-    footer a {
-      color: #0078d7;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    .social-icons a {
-      margin: 0 10px;
-      color: #fff;
-      font-size: 1.5em;
-      text-decoration: none;
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-
 <body>
-  <nav>
-    <ul style="list-style: none; display: flex; justify-content: center; padding: 0; margin: 0;">
-      <li style="margin: 0 15px;"><a href="/about">About</a></li>
-      <li style="margin: 0 15px;"><a href="/services">Services</a></li>
-      <li style="margin: 0 15px;"><a href="#contact">Contact</a></li>
+  <div id="notification-banner" role="status" aria-live="polite"></div>
+
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="/" aria-current="page">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
-  <!-- HEADER -->
+
   <header>
-    <img src="ecs_pics/ecs-logo-light.png" alt="Easy Choice Solutions Logo" class="logo">
+    <img src="/assets/images/ecs-logo-light.png" alt="Easy Choice Solutions Logo" class="logo">
     <h1>Easy Choice Solutions LLC</h1>
     <p>Making your solutions easier, one choice at a time.</p>
   </header>
 
-  <!-- MAIN CONTENT -->
   <div class="container">
     <h2>Welcome to Easy Choice Solutions</h2>
     <p>
@@ -181,16 +36,14 @@
     <a href="/finance/login" class="btn">Access Finance App</a>
   </div>
 
-  <!-- CALL TO ACTION -->
   <div class="cta">
     <p>Ready to simplify your business? Contact us today to learn how we can help!</p>
     <a href="#contact" class="btn">Contact Us</a>
   </div>
 
-  <!-- CONTACT FORM -->
   <div class="container" id="contact">
     <h2>Contact Us</h2>
-    <form action="submit-form.php" method="POST">
+    <form action="/forms/submit-form.php" method="POST">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" placeholder="Your name" required>
 
@@ -207,64 +60,42 @@
     </form>
   </div>
 
-  <!-- FOOTER -->
   <footer>
-    <div style="background-color: #2c2c2c; text-align: center; padding: 40px 0;">
-      <img src="ecs_pics/ecs-logo-dark.png" alt="Easy Choice Solutions Logo" style="max-width: 300px;">
+    <div class="footer-brand">
+      <img src="/assets/images/ecs-logo-dark.png" alt="Easy Choice Solutions Logo">
     </div>
-
     <p>&copy; 2026 Easy Choice Solutions LLC. All rights reserved.</p>
     <p>Follow us:
-      <a href="https://www.facebook.com/profile.php?id=61592873879855" class="social-icons">Facebook</a>
+      <a href="https://www.facebook.com/profile.php?id=61592873879855" class="social-icons" rel="noopener noreferrer" target="_blank">Facebook</a>
     </p>
     <p><a href="/finance/login">Finance App</a></p>
   </footer>
-<script>
-  (function () {
-    const params = new URLSearchParams(window.location.search);
-    const banner = document.getElementById('notification-banner');
 
-    if (params.has('sent')) {
-      if (params.get('sent') === '1') {
-        banner.textContent = '✅ Thank you! Your message has been sent successfully.';
-        banner.style.backgroundColor = '#28a745'; // green
-      } else {
-        banner.textContent = '⚠️ Sorry, there was an error sending your message. Please try again.';
-        banner.style.backgroundColor = '#dc3545'; // red
+  <script src="/assets/js/form-handler.js"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const banner = document.getElementById('notification-banner');
+
+      if (params.has('sent') && banner) {
+        if (params.get('sent') === '1') {
+          banner.textContent = 'Thank you! Your message has been sent successfully.';
+          banner.style.backgroundColor = '#28a745';
+        } else {
+          banner.textContent = 'Sorry, there was an error sending your message. Please try again.';
+          banner.style.backgroundColor = '#dc3545';
+        }
+
+        banner.style.display = 'block';
+
+        setTimeout(function () {
+          banner.style.display = 'none';
+        }, 5000);
+
+        const cleanUrl = window.location.pathname + window.location.hash;
+        window.history.replaceState({}, document.title, cleanUrl);
       }
-
-      banner.style.display = 'block';
-
-      // Auto-hide after 5 seconds
-      setTimeout(function () {
-        banner.style.display = 'none';
-      }, 5000);
-
-      // Clean the ?sent=1 out of the URL so it won't reshow on refresh
-      const cleanUrl = window.location.pathname + window.location.hash;
-      window.history.replaceState({}, document.title, cleanUrl);
-    }
-  })();
-</script>
-<script>
-  (function () {
-    const form = document.querySelector('#contact form');
-    const btn  = document.getElementById('submit-btn');
-
-    if (form && btn) {
-      form.addEventListener('submit', function () {
-        // Disable the button so it can't be clicked twice
-        btn.disabled = true;
-
-        // Change the label to show progress
-        btn.textContent = 'Sending...';
-
-        // Dim it slightly and change the cursor for visual feedback
-        btn.style.opacity = '0.7';
-        btn.style.cursor  = 'not-allowed';
-      });
-    }
-  })();
-</script>
+    })();
+  </script>
 </body>
 </html>

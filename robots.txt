@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /forms/
 Allow: /
 
-Sitemap: https://www.easychoicesolutions.com/sitemap.xml
+Sitemap: https://easychoicesolutions.com/sitemap.xml
