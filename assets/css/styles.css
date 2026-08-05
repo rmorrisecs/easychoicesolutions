@@ -5,11 +5,21 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   color: #333;
   line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 nav {
@@ -231,11 +241,29 @@ footer a:hover {
 }
 
 @media (max-width: 640px) {
+  header {
+    padding: 28px 16px;
+  }
+
   header h1 {
-    font-size: 1.6em;
+    font-size: 1.45em;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+
+  header .logo {
+    max-width: 140px;
   }
 
   nav ul {
     gap: 8px 16px;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  .footer-brand img {
+    max-width: 200px;
   }
 }
