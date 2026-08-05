@@ -1,0 +1,53 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header {
+  background: #007bff;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+header .logo {
+  max-width: 150px;
+  margin-bottom: 1rem;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/custom-fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('/assets/fonts/custom-fonts/OpenSans-Bold.ttf') format('truetype');
+}
+
+#menu {
+  visibility: visible;
+  display: block;
+  color: black; /* Ensure text is visible */
+  background-color: white; /* Ensure background contrasts with text */
+  z-index: 1000; /* Ensure menu is on top */
+}

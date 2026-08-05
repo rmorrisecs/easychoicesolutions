@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /forms/
+Allow: /
+
+Sitemap: https://www.easychoicesolutions.com/sitemap.xml
