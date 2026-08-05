@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Us Page for Easy Choice Solutions LLC">
-  <title>Contact Us - Easy Choice Solutions LLC</title>
+  <meta name="description" content="Contact Easy Choice Solutions LLC in Phoenix, AZ. Call (480) 270-4380 or email info@easychoicesolutions.com.">
+  <title>Contact — Easy Choice Solutions LLC</title>
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
   <div id="notification-banner" role="status" aria-live="polite"></div>
 
-  <nav aria-label="Main">
+  <nav class="site-nav" aria-label="Main">
+    <a class="brand" href="/">
+      <img src="/assets/images/ecs-logo-light.png" alt="">
+      Easy Choice Solutions
+    </a>
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/about">About</a></li>
@@ -20,33 +24,67 @@
     </ul>
   </nav>
 
-  <header>
-    <img src="/assets/images/ecs-logo-light.png" alt="Easy Choice Solutions Logo" class="logo">
-    <h1>Contact Us</h1>
+  <header class="page-hero">
+    <div class="page-hero-inner">
+      <p class="eyebrow">Contact</p>
+      <h1>Let’s start improving together</h1>
+      <p>Reach out to discuss workshops, consulting, or a focused Kaizen event for your team.</p>
+    </div>
   </header>
 
-  <main class="container">
-    <form action="/forms/submit-form.php" method="POST">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" placeholder="Your name" required>
+  <main class="section">
+    <div class="contact-grid">
+      <div>
+        <p class="section-kicker">Reach us</p>
+        <h2>Easy Choice Solutions LLC</h2>
+        <p class="support">We respond promptly to new inquiries and are happy to schedule a discovery conversation.</p>
+        <dl class="contact-details">
+          <div>
+            <dt>Phone</dt>
+            <dd><a href="tel:+14802704380">(480) 270-4380</a></dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd><a href="mailto:info@easychoicesolutions.com">info@easychoicesolutions.com</a></dd>
+          </div>
+          <div>
+            <dt>Address</dt>
+            <dd>17008 S 29th Way<br>Phoenix, AZ 85048</dd>
+          </div>
+        </dl>
+      </div>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="Your email" required>
+      <form action="/forms/submit-form.php" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
 
-      <label for="subject">Subject:</label>
-      <input type="text" id="subject" name="subject" placeholder="Subject">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required autocomplete="email">
 
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="How can we help?">
 
-      <button type="submit" id="submit-btn">Send Message</button>
-    </form>
-    <p>Email: <a href="mailto:info@easychoicesolutions.com">info@easychoicesolutions.com</a></p>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="Tell us about your goals or challenges" required></textarea>
+
+        <button type="submit" id="submit-btn">Send message</button>
+      </form>
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Easy Choice Solutions LLC. All rights reserved.</p>
-    <p><a href="/">Home</a></p>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div>
+        <p class="brand-block">Easy Choice Solutions LLC</p>
+        <p class="meta">Continuous improvement consultancy based in Phoenix, Arizona.</p>
+      </div>
+      <div class="meta">
+        <p><a href="tel:+14802704380">(480) 270-4380</a></p>
+        <p><a href="mailto:info@easychoicesolutions.com">info@easychoicesolutions.com</a></p>
+        <p>17008 S 29th Way<br>Phoenix, AZ 85048</p>
+      </div>
+      <p class="legal">&copy; 2026 Easy Choice Solutions LLC. All rights reserved.</p>
+    </div>
   </footer>
 
   <script src="/assets/js/form-handler.js"></script>
@@ -54,24 +92,17 @@
     (function () {
       const params = new URLSearchParams(window.location.search);
       const banner = document.getElementById('notification-banner');
-
       if (params.has('sent') && banner) {
         if (params.get('sent') === '1') {
           banner.textContent = 'Thank you! Your message has been sent successfully.';
-          banner.style.backgroundColor = '#28a745';
+          banner.style.backgroundColor = '#0f7a7a';
         } else {
           banner.textContent = 'Sorry, there was an error sending your message. Please try again.';
-          banner.style.backgroundColor = '#dc3545';
+          banner.style.backgroundColor = '#b85a2f';
         }
-
         banner.style.display = 'block';
-
-        setTimeout(function () {
-          banner.style.display = 'none';
-        }, 5000);
-
-        const cleanUrl = window.location.pathname + window.location.hash;
-        window.history.replaceState({}, document.title, cleanUrl);
+        setTimeout(function () { banner.style.display = 'none'; }, 5000);
+        window.history.replaceState({}, document.title, window.location.pathname + window.location.hash);
       }
     })();
   </script>
