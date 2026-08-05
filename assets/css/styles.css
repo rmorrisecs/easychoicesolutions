@@ -1,10 +1,12 @@
 /* Easy Choice Solutions — continuous improvement consultancy */
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Syne:wght@600;700;800&display=swap');
+/* Fonts loaded via <link> in HTML */
 
 :root {
+  --font-display: 'Outfit', 'Segoe UI', sans-serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
   --ink: #132029;
   --slate: #243746;
-  --muted: #5a6d78;
+  --muted: #455863;
   --paper: #eef3f5;
   --fog: #d7e2e7;
   --white: #ffffff;
@@ -32,10 +34,11 @@ html {
 }
 
 body {
-  font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+  font-family: var(--font-body);
   background: var(--paper);
   color: var(--ink);
-  line-height: 1.65;
+  font-size: 1.0625rem;
+  line-height: 1.7;
   overflow-x: hidden;
 }
 
@@ -75,7 +78,7 @@ a:hover {
   gap: 0.65rem;
   color: var(--white);
   text-decoration: none;
-  font-family: Syne, sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: 0.02em;
@@ -166,11 +169,11 @@ a:hover {
 }
 
 .hero-brand {
-  font-family: Syne, sans-serif;
-  font-weight: 800;
-  font-size: clamp(2.4rem, 7vw, 4.6rem);
-  line-height: 0.98;
-  letter-spacing: -0.03em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.25rem, 6.2vw, 4.1rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
   max-width: 14ch;
   margin-bottom: 1.25rem;
   animation: rise 0.9s var(--ease) both;
@@ -180,14 +183,14 @@ a:hover {
   display: block;
   font-size: 0.32em;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.72);
   margin-bottom: 0.55rem;
 }
 
 .hero h1 {
-  font-family: Syne, sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(1.35rem, 3.2vw, 2rem);
   line-height: 1.25;
@@ -219,7 +222,7 @@ a:hover {
   gap: 0.4rem;
   padding: 0.85rem 1.35rem;
   border-radius: 0.35rem;
-  font-family: Syne, sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.95rem;
   text-decoration: none;
@@ -295,20 +298,20 @@ a:hover {
 }
 
 .page-hero .eyebrow {
-  font-family: Syne, sans-serif;
+  font-family: var(--font-display);
   font-size: 0.78rem;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0.6rem;
 }
 
 .page-hero h1 {
-  font-family: Syne, sans-serif;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(2rem, 5vw, 3.25rem);
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.005em;
   max-width: 16ch;
 }
 
@@ -330,9 +333,9 @@ a:hover {
 }
 
 .section-kicker {
-  font-family: Syne, sans-serif;
+  font-family: var(--font-display);
   font-size: 0.78rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--teal);
   font-weight: 700;
@@ -340,11 +343,11 @@ a:hover {
 }
 
 .section h2 {
-  font-family: Syne, sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(1.7rem, 3.5vw, 2.35rem);
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.005em;
   color: var(--ink);
   margin-bottom: 1rem;
   max-width: 18ch;
@@ -406,8 +409,8 @@ a:hover {
 }
 
 .service-list .num {
-  font-family: Syne, sans-serif;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: 1.1rem;
   color: var(--teal);
   min-width: 2.2rem;
@@ -415,7 +418,7 @@ a:hover {
 }
 
 .service-list h3 {
-  font-family: Syne, sans-serif;
+  font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.35rem;
@@ -466,7 +469,7 @@ a:hover {
 }
 
 .band h2 {
-  font-family: Syne, sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(1.7rem, 3.5vw, 2.4rem);
   max-width: 18ch;
   margin-bottom: 0.75rem;
@@ -495,7 +498,7 @@ a:hover {
 
 .reason-stack strong {
   display: block;
-  font-family: Syne, sans-serif;
+  font-family: var(--font-display);
   color: var(--ink);
   margin-bottom: 0.2rem;
 }
@@ -519,7 +522,7 @@ a:hover {
 }
 
 .contact-details dt {
-  font-family: Syne, sans-serif;
+  font-family: var(--font-display);
   font-size: 0.78rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -583,7 +586,7 @@ form button {
   background: var(--copper);
   color: var(--white);
   border: none;
-  font-family: Syne, sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   cursor: pointer;
   margin-bottom: 0;
@@ -605,7 +608,7 @@ form button:disabled {
 }
 
 .blog-list h2 {
-  font-family: Syne, sans-serif;
+  font-family: var(--font-display);
   font-size: 1.35rem;
   max-width: none;
   margin-bottom: 0.4rem;
@@ -648,8 +651,8 @@ form button:disabled {
 }
 
 .site-footer .brand-block {
-  font-family: Syne, sans-serif;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: 1.35rem;
   color: var(--white);
   margin-bottom: 0.5rem;
