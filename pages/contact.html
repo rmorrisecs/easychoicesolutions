@@ -8,25 +8,72 @@
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
+  <div id="notification-banner" role="status" aria-live="polite"></div>
+
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/contact" aria-current="page">Contact</a></li>
+    </ul>
+  </nav>
+
   <header>
     <img src="/assets/images/ecs-logo-light.png" alt="Easy Choice Solutions Logo" class="logo">
     <h1>Contact Us</h1>
   </header>
+
   <main class="container">
     <form action="/forms/submit-form.php" method="POST">
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+      <input type="text" id="name" name="name" placeholder="Your name" required>
+
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" name="email" placeholder="Your email" required>
+
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" name="subject" placeholder="Subject">
+
       <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
+      <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+
+      <button type="submit" id="submit-btn">Send Message</button>
     </form>
-    <p>Phone: (123) 456-7890</p>
-    <p>Email: info@easychoicesolutions.com</p>
+    <p>Email: <a href="mailto:info@easychoicesolutions.com">info@easychoicesolutions.com</a></p>
   </main>
+
   <footer>
     <p>&copy; 2026 Easy Choice Solutions LLC. All rights reserved.</p>
+    <p><a href="/">Home</a></p>
   </footer>
+
+  <script src="/assets/js/form-handler.js"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const banner = document.getElementById('notification-banner');
+
+      if (params.has('sent') && banner) {
+        if (params.get('sent') === '1') {
+          banner.textContent = 'Thank you! Your message has been sent successfully.';
+          banner.style.backgroundColor = '#28a745';
+        } else {
+          banner.textContent = 'Sorry, there was an error sending your message. Please try again.';
+          banner.style.backgroundColor = '#dc3545';
+        }
+
+        banner.style.display = 'block';
+
+        setTimeout(function () {
+          banner.style.display = 'none';
+        }, 5000);
+
+        const cleanUrl = window.location.pathname + window.location.hash;
+        window.history.replaceState({}, document.title, cleanUrl);
+      }
+    })();
+  </script>
 </body>
 </html>

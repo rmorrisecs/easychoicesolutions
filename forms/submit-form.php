@@ -2,45 +2,58 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'PHPMailer/Exception.php';
-require 'PHPMailer/PHPMailer.php';
-require 'PHPMailer/SMTP.php';
+require __DIR__ . '/../PHPMailer/Exception.php';
+require __DIR__ . '/../PHPMailer/PHPMailer.php';
+require __DIR__ . '/../PHPMailer/SMTP.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name    = htmlspecialchars($_POST['name']);
-    $email   = htmlspecialchars($_POST['email']);
-    $subject = htmlspecialchars($_POST['subject']);
-    $message = htmlspecialchars($_POST['message']);
-
-    $mail = new PHPMailer(true);
-
-    try {
-        $mail->isSMTP();
-        $mail->Host       = 'smtp.hostinger.com';        // SMTP host (confirm with your provider)
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'noreply@easychoicesolutions.com';     // full email you log in with
-        $mail->Password   = '*s50Lroot';               // that mailbox's password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;           // or ENCRYPTION_STARTTLS
-        $mail->Port       = 465;                                   // 465 = SMTPS, 587 = STARTTLS
-
-        $mail->setFrom('noreply@easychoicesolutions.com', 'Website Contact Form');
-        $mail->addAddress('info@easychoicesolutions.com');         // where the form arrives
-        $mail->addReplyTo($email, $name);                          // click Reply to answer the visitor
-
-        $mail->Subject = "New Contact Form Submission: $subject";
-        $mail->Body    = "Name: $name\nEmail: $email\n\nMessage:\n$message";
-
-        $mail->send();
-        $mail->send();
-
-        // Redirect back to homepage with a success flag
-        header("Location: index.html?sent=1");
-        exit;
-
-    } catch (Exception $e) {
-        // On failure, send them back with an error flag
-        header("Location: index.html?sent=0");
-        exit;
-    }
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: /contact');
+    exit;
 }
-?>
+
+$name    = trim((string)($_POST['name'] ?? ''));
+$email   = trim((string)($_POST['email'] ?? ''));
+$subject = trim((string)($_POST['subject'] ?? 'Website inquiry'));
+$message = trim((string)($_POST['message'] ?? ''));
+
+$redirectBase = '/contact';
+if (!empty($_SERVER['HTTP_REFERER']) && str_contains($_SERVER['HTTP_REFERER'], '/contact') === false) {
+    // Submissions from the homepage contact section return there
+    $redirectBase = '/';
+}
+
+if ($name === '' || $email === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    header('Location: ' . $redirectBase . '?sent=0');
+    exit;
+}
+
+if ($subject === '') {
+    $subject = 'Website inquiry';
+}
+
+$mail = new PHPMailer(true);
+
+try {
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.hostinger.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'noreply@easychoicesolutions.com';
+    $mail->Password   = '*s50Lroot';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail->Port       = 465;
+
+    $mail->setFrom('noreply@easychoicesolutions.com', 'Website Contact Form');
+    $mail->addAddress('info@easychoicesolutions.com');
+    $mail->addReplyTo($email, $name);
+
+    $mail->Subject = 'New Contact Form Submission: ' . $subject;
+    $mail->Body    = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+
+    $mail->send();
+
+    header('Location: ' . $redirectBase . '?sent=1');
+    exit;
+} catch (Exception $e) {
+    header('Location: ' . $redirectBase . '?sent=0');
+    exit;
+}

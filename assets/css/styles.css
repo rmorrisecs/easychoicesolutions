@@ -1,53 +1,241 @@
 /* Global Styles */
-body {
-  font-family: Arial, sans-serif;
+* {
   margin: 0;
   padding: 0;
-  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   color: #333;
+  line-height: 1.6;
+}
+
+nav {
+  background: #1f1f1f;
+  padding: 12px 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 24px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  color: #7ec8ff;
+  text-decoration: underline;
 }
 
 header {
-  background: #007bff;
+  background: linear-gradient(135deg, #2c2c2c, #0078d7);
   color: #fff;
-  padding: 1rem 0;
   text-align: center;
+  padding: 40px 20px;
 }
 
 header .logo {
-  max-width: 150px;
-  margin-bottom: 1rem;
+  max-width: 200px;
+  height: auto;
+}
+
+header h1 {
+  margin-top: 15px;
+  font-size: 2.5em;
+  text-transform: uppercase;
+}
+
+header p {
+  margin: 10px 0 0;
+  font-size: 1.2em;
+  color: #d3d3d3;
 }
 
 .container {
-  width: 80%;
-  margin: 0 auto;
-  padding: 1rem;
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+h2 {
+  color: #0078d7;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #0078d7;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn:hover {
+  background: #005bb5;
+}
+
+.cta {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.cta p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+form {
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input,
+form textarea,
+form button {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font: inherit;
+}
+
+form button {
+  background: #0078d7;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+form button:hover {
+  background: #005bb5;
+}
+
+form button:disabled {
+  background: #005bb5;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.services-grid section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.services-grid img {
+  max-width: 96px;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.blog-list article {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+
+.blog-list a {
+  color: #0078d7;
+  text-decoration: none;
+}
+
+.blog-list a:hover {
+  text-decoration: underline;
+}
+
+#notification-banner {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+  color: #fff;
+  font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 footer {
-  background: #333;
-  color: #fff;
   text-align: center;
-  padding: 1rem 0;
-  margin-top: 2rem;
+  background: #2c2c2c;
+  color: #fff;
+  padding: 20px 0;
+  margin-top: 40px;
 }
 
-@font-face {
-  font-family: 'Roboto';
-  src: url('/assets/fonts/custom-fonts/Roboto-Regular.ttf') format('truetype');
+footer a {
+  color: #7ec8ff;
+  text-decoration: none;
 }
 
-@font-face {
-  font-family: 'OpenSans';
-  src: url('/assets/fonts/custom-fonts/OpenSans-Bold.ttf') format('truetype');
+footer a:hover {
+  text-decoration: underline;
 }
 
-#menu {
-  visibility: visible;
-  display: block;
-  color: black; /* Ensure text is visible */
-  background-color: white; /* Ensure background contrasts with text */
-  z-index: 1000; /* Ensure menu is on top */
+.footer-brand {
+  background-color: #2c2c2c;
+  text-align: center;
+  padding: 40px 0 10px;
+}
+
+.footer-brand img {
+  max-width: 300px;
+  height: auto;
+}
+
+.social-icons {
+  margin: 0 10px;
+  color: #fff;
+  font-size: 1.1em;
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  header h1 {
+    font-size: 1.6em;
+  }
+
+  nav ul {
+    gap: 8px 16px;
+  }
 }
