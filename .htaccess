@@ -25,3 +25,13 @@ RewriteRule ^ - [L]
 
 # Fallback homepage for unknown paths that are not real files
 RewriteRule ^$ pages/index.html [L]
+
+# HTML should revalidate quickly after deploys; versioned assets can cache longer
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(css|js|jpg|jpeg|png|gif|webp|svg|woff2?)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+</IfModule>
