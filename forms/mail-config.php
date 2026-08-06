@@ -20,6 +20,8 @@ $mail_smtp = [
 // Primary inbox for new contact form messages
 $mail_to = [
     'info@easychoicesolutions.com',
+    'robert@easychoicesolutions.com',
+    'rmorrisg@gmail.com',
 ];
 
 // Optional blind copies (e.g. a personal Gmail you check daily)
